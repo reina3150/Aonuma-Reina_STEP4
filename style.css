@@ -1,0 +1,37 @@
+body {
+    font-family: sans-serif;
+    width: 80%;
+    margin: 0 auto;
+
+}
+h1 {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.form-item {
+    margin-bottom: 20px;
+
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+
+}
+
+input,
+select {
+    width: 100px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: blue;
+    color: white;
+    padding: 10pa 20px;
+    border: none;
+}
