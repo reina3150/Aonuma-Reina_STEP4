@@ -1,55 +1,67 @@
+<?php
+session_start();
+
+$name = $_SESSION['name'] ?? '';
+$age = $_SESSION['age'] ?? '';
+$phone = $_SESSION['phone'] ?? '';
+$email = $_SESSION['email'] ?? '';
+$address = $_SESSION['address'] ?? '';
+$question = $_SESSION['question'] ?? '';
+$gender = $_SESSION['gender'] ?? '';
+?>
+
 <!DOCTYPE html>
-
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>フォーム入力</title>
-        <link rel="stylesheet" href="style.css">
 
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>入力内容確認</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <body>
-        <h1>フォーム入力</h1>
+<body>
 
-        <?php
-        if ($SERVER["REQEST"_METHOD"] === "POST"){
+    <main class="confirm-container">
 
-            $name = $_POST['name'];
-            $age = $_POST['age'];
-            $phone = $_POST['phone'];
-            $email = $_POST['email'] ;
-            $address = $_POST['address'];
-            $question = $_POST['question'];
-            $gender = $_POST['gender'];
+        <h1>入力内容確認</h1>
 
+        <p>
+            名前:
+            <?php echo htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?>
+        </p>
 
-            //バリテーション
-            if (!preg_match("/^[ぁーんァーヶ一-龠a-zA-Z\s]+$/u",$name)) {
-                echo "<p>名前はひらがな、カタカナ、漢字、英字のみ使用できます。</p>";
-            }
+        <p>
+            年齢:
+            <?php echo htmlspecialchars($age, ENT_QUOTES, 'UTF-8'); ?>
+        </p>
 
-            if (!is_numeric($age) || $age < 0 $age > 150) {
-                echo "<P>年齢は0から150の間で入力してください。</p>";
-            }
+        <p>
+            電話番号:
+            <?php echo htmlspecialchars($phone, ENT_QUOTES, 'UTF-8'); ?>
+        </p>
 
-            if (!preg_match('/^[0-9-]+$/', $phone)) {
-                echo "<P>電話番号は半角数字とハイフンのみ使用できます。</p>"
-            
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                echo "<p>メールアドレスの形式が正しくありません。</p>"
+        <p>
+            メールアドレス:
+            <?php echo htmlspecialchars($email, ENT_QUOTES, 'UTF-8'); ?>
+        </p>
 
-            if (!preg_match('/^ぁーんァーヶーー龠a-zA-Z0-9--]+$/u', $address)) {
-                echo "<p>住所はひらがな、カタカナ、漢字、英字、半角数字、ハイフンのみ使用できます。</p>"
+        <p>
+            住所:
+            <?php echo htmlspecialchars($address, ENT_QUOTES, 'UTF-8'); ?>
+        </p>
 
-            ?>
+        <p>
+            質問:
+            <?php echo htmlspecialchars($question, ENT_QUOTES, 'UTF-8'); ?>
+        </p>
 
-    </body>      
-    
+        <p>
+            性別:
+            <?php echo htmlspecialchars($gender, ENT_QUOTES, 'UTF-8'); ?>
+        </p>
+
+    </main>
+
+</body>
+
 </html>
-
-
-
-
-
-         
-
